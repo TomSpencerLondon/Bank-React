@@ -7,6 +7,7 @@ const TransactionWriter = () => {
         <input type="text" name="amount" />
       </label>
       <input type="submit" value="Deposit" />
+      <input type="submit" value="Withdraw" />
     </form>
   )
 }

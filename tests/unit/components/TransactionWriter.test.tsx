@@ -11,5 +11,10 @@ describe('TransactionWriter', () => {
   it('renders a button for deposit', () => {
     render(<TransactionWriter />)
     expect(screen.getByRole('button', {name: /deposit/i})).toBeInTheDocument();
-  })
+  });
+
+  it('renders a button for withdraw', () => {
+    render(<TransactionWriter />)
+    expect(screen.getByRole('button', {name: /withdraw/i})).toBeInTheDocument();
+  });
 })

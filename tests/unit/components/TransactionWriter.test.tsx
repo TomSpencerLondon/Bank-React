@@ -1,5 +1,5 @@
 import React from "react";
-import {render, screen} from "@testing-library/react";
+import {render, screen } from "@testing-library/react";
 import TransactionWriter from "../../../src/components/TransactionWriter";
 
 describe('TransactionWriter', () => {

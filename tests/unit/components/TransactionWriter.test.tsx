@@ -7,4 +7,9 @@ describe('TransactionWriter', () => {
     render(<TransactionWriter />)
     expect(screen.getByLabelText("Amount")).toBeInTheDocument();
   });
+
+  it('renders a button for deposit', () => {
+    render(<TransactionWriter />)
+    expect(screen.getByRole('button', {name: /deposit/i})).toBeInTheDocument();
+  })
 })

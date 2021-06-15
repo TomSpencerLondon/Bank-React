@@ -2,7 +2,7 @@ import React from 'react';
 import AccountPage from '../../../src/pages';
 import * as TransactionWriter from "../../../src/components/TransactionWriter";
 import {render} from "@testing-library/react";
-import * as TransactionDisplay from "../../../src/components/TransactionDisplay";
+import * as TransactionDisplay from "../../../src/components/StatementDisplay";
 
 // always do spies but fairly often mock spy
 // dont mock unless you have to

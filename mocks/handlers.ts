@@ -1,11 +1,11 @@
-import { rest } from 'msw';
+import {rest} from 'msw';
 
 export const handlers = [
-  rest.post('/transactions', (req, res, ctx) => {
+  rest.post('/transactions', (_req, res, ctx) => {
     return res(
-      ctx.status(200);
+      ctx.status(200))
   }),
-  rest.get('/transactions', (req, res, ctx) => {
+  rest.get('/transactions', (_req, res, ctx) => {
     return res(
       ctx.json({
         transactions: [

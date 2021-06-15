@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '../components/Layout'
 import TransactionWriter from '../components/TransactionWriter';
-import TransactionDisplay from "../components/TransactionDisplay";
+import StatementDisplay from "../components/StatementDisplay";
 
 const AccountPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
     <TransactionWriter />
-    <TransactionDisplay />
+    <StatementDisplay />
   </Layout>
 )
 

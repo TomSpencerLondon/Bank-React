@@ -6,7 +6,7 @@ export default {
     "**/?(*.)+(spec|test).+(ts|tsx|js)"
   ],
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
+    "^.+\\.tsx?$": "babel-jest",
   },
   coverageThreshold: {
     global: {

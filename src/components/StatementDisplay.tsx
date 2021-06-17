@@ -1,18 +1,14 @@
-import React, {useState} from 'react';
-
-interface StatementRecord {
-  date: string,
-  amount: number,
-  balance: number
-}
-
-interface Statement {
-  statementRecords: StatementRecord[]
-}
+import React, {useState, useEffect} from 'react';
+import { Statement } from '../interfaces/Statement';
+import getStatement from '../api/getStatement';
 
 const StatementDisplay = () => {
   const [statement, setStatement] =
     useState<Statement>({statementRecords: []});
+
+  useEffect(() => {
+    getStatement().then(setStatement);
+  }, []);
 
   return (
     <table>

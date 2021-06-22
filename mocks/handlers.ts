@@ -9,7 +9,7 @@ const transactionHistory = new TransactionHistory(clock)
 const account = new Account(transactionHistory, new StatementPrinter(() => {}))
 
 export const handlers = [
-  rest.post('/transactions', (req, res, ctx) => {
+  rest.post('https://realbank.com/transactions', (req, res, ctx) => {
     const { amount, action } = req.params;
 
     switch (action) {
@@ -19,7 +19,7 @@ export const handlers = [
       case 'WITHDRAW':
         account.withdraw(parseInt(amount, 10))
         break;
-    
+
       default:
         throw new Error(`Action not supported "${action}"`);
     }
@@ -27,7 +27,7 @@ export const handlers = [
     return res(ctx.status(200))
   }),
 
-  rest.get('/transactions', (_req, res, ctx) => {
+  rest.get('https://realbank.com/statement', (_req, res, ctx) => {
     let balance = 0;
 
     const transactions = transactionHistory

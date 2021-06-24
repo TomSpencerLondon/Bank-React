@@ -24,6 +24,15 @@ const StatementDisplay = () => {
           Balance
         </td>
       </tr>
+
+      {statement.statementRecords.map((record) => {
+        return (<tr key={`${record.date}-${record.amount}-${record.balance}`}>
+          <td>{record.date}</td>
+          <td>{record.amount}</td>
+          <td>{record.balance}</td>
+        </tr>)
+      })
+      }
       </tbody>
     </table>
   )

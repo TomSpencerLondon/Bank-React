@@ -29,7 +29,6 @@ export const handlers = [
 
   rest.get('https://realbank.com/statement', (_req, res, ctx) => {
     let balance = 0;
-
     const transactions = transactionHistory
       .allTransactions()
       .map(({ date, amount }) => {

@@ -23,6 +23,8 @@ it('works', async () => {
   expect(within(rows[0]).getAllByRole('cell')[1]).toHaveTextContent("Amount")
   expect(within(rows[0]).getAllByRole('cell')[2]).toHaveTextContent("Balance")
 
+  await screen.findByText("14/01/2012");
+
   expect(within(rows[1]).getAllByRole('cell')[0]).toHaveTextContent("14/01/2012")
   expect(within(rows[1]).getAllByRole('cell')[1]).toHaveTextContent("-500")
   expect(within(rows[1]).getAllByRole('cell')[2]).toHaveTextContent("2500")

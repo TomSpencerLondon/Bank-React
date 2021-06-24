@@ -3,7 +3,7 @@ import { Statement } from '../interfaces/Statement';
 import getStatement from '../api/getStatement';
 
 const StatementDisplay = () => {
-  const [statement, setStatement] =
+  let [statement, setStatement] =
     useState<Statement>({statementRecords: []});
 
   useEffect(() => {

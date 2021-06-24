@@ -28,8 +28,6 @@ describe('Display', () => {
 
     render(<StatementDisplay />)
 
-    expect(spyOnGetStatement.mock.calls.length).toBe(1);
-
     await screen.findByText("21/05/21");
     const rows = await screen.findAllByRole('row');
 

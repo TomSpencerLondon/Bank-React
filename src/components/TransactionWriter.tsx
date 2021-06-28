@@ -1,14 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
+import postStatement from "../api/postStatement";
+import "setimmediate";
 const TransactionWriter = () => {
+  const [amount, setAmount] = useState("");
+  const [action, setAction] = useState("");
+
+  const handleSubmit = (event: any) => {
+    postStatement({action, amount} );
+    event.preventDefault();
+  }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Amount
-        <input type="text" name="amount" />
+        <input
+          type="text"
+          value={amount}
+          onChange={e => {
+            setAmount(e.target.value);
+          }}
+          name="amount" />
       </label>
-      <input type="submit" value="Deposit" />
-      <input type="submit" value="Withdraw" />
+      <button
+        type="submit"
+        name="deposit"
+        onClick={() => {
+          setAction("deposit");
+        }}
+      >
+        Deposit
+      </button>
+      <button
+        type="submit"
+        name="withdraw"
+        onClick={() => {
+          setAction("withdraw");
+        }}
+        >
+        Withdraw
+      </button>
     </form>
   )
 }
 export default TransactionWriter
+

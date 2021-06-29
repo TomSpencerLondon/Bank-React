@@ -2,7 +2,7 @@ import React from "react";
 import {render, screen } from "@testing-library/react";
 import TransactionWriter from "../../../src/components/TransactionWriter";
 import userEvent from "@testing-library/user-event";
-import * as postStatement from "../../../src/api/postStatement";
+import * as postStatement from "../../../src/api/postTransaction";
 
 const spyOnGetStatement = jest.spyOn(postStatement, "default")
 

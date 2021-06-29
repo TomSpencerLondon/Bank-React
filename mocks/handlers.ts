@@ -10,7 +10,9 @@ const account = new Account(transactionHistory, new StatementPrinter(() => {}))
 
 export const handlers = [
   rest.post('https://realbank.com/transactions', (req, res, ctx) => {
-    const { amount, action } = req.params;
+    const {amount, action } = JSON.parse(req.body as string);
+    console.log("Amount: ", amount);
+    console.log("Action: ", action);
 
     switch (action) {
       case 'DEPOSIT':

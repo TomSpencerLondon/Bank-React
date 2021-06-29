@@ -21,7 +21,7 @@ export default {
   ],
   globals: {
     "ts-jest": {
-      tsConfig: "tsconfig.jest.json",
+      tsConfig: "./tsconfig.jest.json",
     },
     statements: 0,
     branches: 0,

@@ -1,14 +1,26 @@
 import React, {useState} from 'react';
-import postStatement from "../api/postStatement";
+import postTransaction from "../api/postTransaction";
 import "setimmediate";
+
+
 const TransactionWriter = () => {
   const [amount, setAmount] = useState("");
   const [action, setAction] = useState("");
 
-  const handleSubmit = (event: any) => {
-    postStatement({action, amount} );
-    event.preventDefault();
+
+  const depositTransaction = () => {
+    postTransaction({action: "DEPOSIT", amount} );
   }
+
+  const withdrawTransaction = () => {
+    postTransaction({action: "WITHDRAW", amount} );
+  }
+
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -22,19 +34,17 @@ const TransactionWriter = () => {
           name="amount" />
       </label>
       <button
-        type="submit"
         name="deposit"
         onClick={() => {
-          setAction("deposit");
+          depositTransaction();
         }}
       >
         Deposit
       </button>
       <button
-        type="submit"
         name="withdraw"
         onClick={() => {
-          setAction("withdraw");
+          withdrawTransaction();
         }}
         >
         Withdraw

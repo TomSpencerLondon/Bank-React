@@ -1,14 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import { Statement } from '../interfaces/Statement';
 import getStatement from '../api/getStatement';
+import {useQuery} from "react-query";
 
 const StatementDisplay = () => {
-  let [statement, setStatement] =
-    useState<Statement>({statementRecords: []});
 
-  useEffect(() => {
-    getStatement().then(setStatement);
-  }, []);
+  const { data: statement = {statementRecords: []} } =
+    useQuery('getStatement', getStatement, {
+      refetchInterval: 100
+    })
+
+  // let [statement, setStatement] =
+  //   useState<Statement>({statementRecords: []});
+
+  // useEffect(() => {
+  //   getStatement().then(setStatement);
+  // }, []);
 
   return (
     <table>

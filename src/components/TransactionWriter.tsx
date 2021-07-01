@@ -18,6 +18,7 @@ const TransactionWriter = () => {
 
 
   const handleSubmit = (e: any) => {
+    setAmount("");
     e.preventDefault();
   }
 

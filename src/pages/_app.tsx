@@ -1,8 +1,4 @@
-
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
-// import { QueryClient, QueryClientProvider } from 'react-query';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { QueryClient, QueryClientProvider } from 'react-query';
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 import '../../mocks'
@@ -15,11 +11,13 @@ import '../../mocks'
 //   },
 // });
 
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }: any) {
   return (
-    // <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
-    // </QueryClientProvider>
+    </QueryClientProvider>
   );
 }
 

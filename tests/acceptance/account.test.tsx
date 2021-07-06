@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {render, screen, within } from "@testing-library/react";
+import {screen, within } from "@testing-library/react";
 import AccountPage from '../../src/pages';
 import userEvent from "@testing-library/user-event";
 import {QueryClient, QueryClientProvider} from "react-query";
 import mockdate from "mockdate";
+import {render} from "../helpers/testUtils";
 
 it('works', async () => {
 
@@ -13,7 +14,7 @@ it('works', async () => {
   // 10/01/2012 || 1000   || 1000
 
   let queryClient = new QueryClient();
-  render(<QueryClientProvider client={queryClient}><AccountPage /> </QueryClientProvider>)
+  render(<AccountPage />);
 
   mockdate.set("2012-01-10")
   userEvent.type(screen.getByLabelText("Amount"), "1000");

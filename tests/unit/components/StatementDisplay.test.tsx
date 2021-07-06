@@ -1,9 +1,10 @@
-import { render, screen, within} from "@testing-library/react";
+import { screen, within} from "@testing-library/react";
 import { renderHook, act } from '@testing-library/react-hooks'
 import React, { useEffect } from "react";
 import StatementDisplay from "../../../src/components/StatementDisplay";
 import * as getStatement from '../../../src/api/getStatement';
 import {namedTypes} from "ast-types";
+import {render} from "../../helpers/testUtils";
 
 const spyOnGetStatement = jest.spyOn(getStatement, "default")
 

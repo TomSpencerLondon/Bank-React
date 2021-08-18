@@ -5,7 +5,7 @@ import StatementDisplay from "../components/StatementDisplay";
 
 const AccountPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <div className="flex flex-wrap my-8">
+    <div className="flex">
       <StatementDisplay />
       <TransactionWriter />
     </div>

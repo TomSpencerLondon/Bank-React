@@ -11,21 +11,21 @@ const StatementDisplay = () => {
     })
 
   return (
-    <div className="w-1/2 h-12 bg-gray-200 rounded-lg">
-    <table className="table-fixed">
+    <div className="w-1/2 bg-blue-100 grid justify-items-start">
+    <table className="justify-self-center">
       <thead>
       <tr>
-        <th className="w-1/2">Date</th>
-        <th className="w-1/4">Amount</th>
-        <th className="w-1/4">Balance</th>
+        <th className="bg-blue-100 border text-left px-8 py-4">Date</th>
+        <th className="bg-blue-100 border text-left px-8 py-4">Amount</th>
+        <th className="bg-blue-100 border text-left px-8 py-4">Balance</th>
       </tr>
       </thead>
       <tbody>
       {statement.statementRecords.map((record) => {
         return (<tr className="table-row" key={`${record.date}-${record.amount}-${record.balance}`}>
-          <td>{record.date}</td>
-          <td>{record.amount}</td>
-          <td>{record.balance}</td>
+          <td className="border px-8 py-4">{record.date}</td>
+          <td className="border px-8 py-4">{record.amount}</td>
+          <td className="border px-8 py-4">{record.balance}</td>
         </tr>)
       })
       }

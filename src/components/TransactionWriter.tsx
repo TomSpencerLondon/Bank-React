@@ -23,8 +23,8 @@ const TransactionWriter = () => {
   }
 
   return (
-    <div className="w-1/2 h-12 my-20">
-    <form onSubmit={handleSubmit}>
+    <div className="w-1/2 bg-green-100 grid justify-items-start my-20">
+    <form className="justify-self-center" onSubmit={handleSubmit}>
       <label>
         Amount
         <input

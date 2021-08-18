@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     <header>
       <Nav />
     </header>
-    <div className="container mx-auto">
+    <div className="container mx-auto bg-gray-100">
       {children}
     </div>
   </div>

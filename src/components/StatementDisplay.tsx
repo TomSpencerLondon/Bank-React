@@ -10,38 +10,28 @@ const StatementDisplay = () => {
       refetchInterval: 100
     })
 
-  // let [statement, setStatement] =
-  //   useState<Statement>({statementRecords: []});
-
-  // useEffect(() => {
-  //   getStatement().then(setStatement);
-  // }, []);
-
   return (
-    <table>
-      <tbody>
+    <div className="w-1/2 h-12 bg-gray-200 rounded-lg">
+    <table className="table-fixed">
+      <thead>
       <tr>
-        <td>
-          Date
-        </td>
-        <td>
-          Amount
-        </td>
-        <td>
-          Balance
-        </td>
+        <th className="w-1/2">Date</th>
+        <th className="w-1/4">Amount</th>
+        <th className="w-1/4">Balance</th>
       </tr>
-
+      </thead>
+      <tbody>
       {statement.statementRecords.map((record) => {
-        return (<tr key={`${record.date}-${record.amount}-${record.balance}`}>
+        return (<tr className="table-row" key={`${record.date}-${record.amount}-${record.balance}`}>
           <td>{record.date}</td>
           <td>{record.amount}</td>
           <td>{record.balance}</td>
         </tr>)
       })
       }
-      </tbody>
+    </tbody>
     </table>
+    </div>
   )
 }
 export default StatementDisplay

@@ -23,6 +23,7 @@ const TransactionWriter = () => {
   }
 
   return (
+    <div className="w-1/2 h-12 my-20">
     <form onSubmit={handleSubmit}>
       <label>
         Amount
@@ -51,6 +52,7 @@ const TransactionWriter = () => {
         Withdraw
       </button>
     </form>
+    </div>
   )
 }
 export default TransactionWriter

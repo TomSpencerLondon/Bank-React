@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
+import React, {ReactNode} from 'react'
 import Head from 'next/head'
 import Nav from "./Nav";
 

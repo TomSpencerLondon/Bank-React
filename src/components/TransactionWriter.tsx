@@ -2,17 +2,27 @@ import React, {useState} from 'react';
 import postTransaction from "../api/postTransaction";
 import "setimmediate";
 
+interface TransactionWriterProps {
+  updated: boolean;
+  setUpdated: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const TransactionWriter = () => {
+const TransactionWriter = ({updated, setUpdated}: TransactionWriterProps) => {
   const [amount, setAmount] = useState("");
   const [action, setAction] = useState("");
 
 
   const depositTransaction = () => {
+    if (!updated) {
+      setUpdated(true);
+    }
     postTransaction({action: "DEPOSIT", amount} );
   }
 
   const withdrawTransaction = () => {
+    if (!updated) {
+      setUpdated(true);
+    }
     postTransaction({action: "WITHDRAW", amount} );
   }
 

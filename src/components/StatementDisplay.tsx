@@ -1,14 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import { Statement } from '../interfaces/Statement';
 import getStatement from '../api/getStatement';
 import {useQuery} from "react-query";
 
-const StatementDisplay = () => {
+interface StatementProps {
+  updated: boolean;
+  setUpdated: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+const StatementDisplay = ({updated, setUpdated}: StatementProps) => {
 
   const { data: statement = {statementRecords: []} } =
-    useQuery('getStatement', getStatement, {
-      refetchInterval: 100
-    })
+      useQuery('getStatement', () => getStatement()
+      .then(res => {
+        setUpdated(false);
+        return res
+      }), {enabled: updated});
 
   return (
     <div className="w-1/2 bg-blue-100 grid justify-items-start">

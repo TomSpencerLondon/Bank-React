@@ -2,28 +2,21 @@ import React, {useState} from 'react';
 import postTransaction from "../api/postTransaction";
 import "setimmediate";
 
-interface TransactionWriterProps {
-  updated: boolean;
-  setUpdated: React.Dispatch<React.SetStateAction<boolean>>;
+type RefetchProps = {
+  handleClick: () => void
 }
 
-const TransactionWriter = ({updated, setUpdated}: TransactionWriterProps) => {
+const TransactionWriter = ({handleClick}: RefetchProps) => {
   const [amount, setAmount] = useState("");
   const [action, setAction] = useState("");
 
 
   const depositTransaction = () => {
-    if (!updated) {
-      setUpdated(true);
-    }
-    postTransaction({action: "DEPOSIT", amount} );
+    return postTransaction({action: "DEPOSIT", amount} );
   }
 
   const withdrawTransaction = () => {
-    if (!updated) {
-      setUpdated(true);
-    }
-    postTransaction({action: "WITHDRAW", amount} );
+    return postTransaction({action: "WITHDRAW", amount} );
   }
 
 
@@ -53,7 +46,7 @@ const TransactionWriter = ({updated, setUpdated}: TransactionWriterProps) => {
         type="button"
         name="deposit"
         onClick={() => {
-          depositTransaction();
+          depositTransaction().then(handleClick);
         }}
       >
         Deposit
@@ -63,7 +56,7 @@ const TransactionWriter = ({updated, setUpdated}: TransactionWriterProps) => {
         type="button"
         name="withdraw"
         onClick={() => {
-          withdrawTransaction();
+          withdrawTransaction().then(handleClick);
         }}
       >
         Withdraw

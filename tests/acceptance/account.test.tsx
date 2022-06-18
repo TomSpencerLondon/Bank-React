@@ -33,12 +33,12 @@ it('works', async () => {
   await screen.findByText("14/1/2012");
 
   const rows = await screen.findAllByRole('row');
-  expect(within(rows[0]).getAllByRole('cell')[0]).toHaveTextContent("Date")
-  expect(within(rows[0]).getAllByRole('cell')[1]).toHaveTextContent("Amount")
-  expect(within(rows[0]).getAllByRole('cell')[2]).toHaveTextContent("Balance")
-
+  expect(within(rows[0]).getAllByRole('columnheader')[0]).toHaveTextContent("Date")
+  expect(within(rows[0]).getAllByRole('columnheader')[1]).toHaveTextContent("Amount")
+  expect(within(rows[0]).getAllByRole('columnheader')[2]).toHaveTextContent("Balance")
 
   await screen.findByText("-500");
+  console.log(rows);
 
   expect(within(rows[1]).getAllByRole('cell')[0]).toHaveTextContent("14/1/2012")
   expect(within(rows[1]).getAllByRole('cell')[1]).toHaveTextContent("-500")

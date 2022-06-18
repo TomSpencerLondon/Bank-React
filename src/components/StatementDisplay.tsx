@@ -16,8 +16,8 @@ const StatementDisplay = (statement: Statement) => {
       </tr>
       </thead>
       <tbody>
-      {statement.statementRecords.map((record) => {
-        return (<tr className="table-row" key={`${record.date}-${record.amount}-${record.balance}`}>
+      {statement.statementRecords.map((record, index) => {
+        return (<tr className="table-row" key={`${record.date}-${record.amount}-${record.balance}-${index}`}>
           <td className="border px-8 py-4">{record.date}</td>
           <td className="border px-8 py-4">{record.amount}</td>
           <td className="border px-8 py-4">{record.balance}</td>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {screen, within } from "@testing-library/react";
+import {getByRole, screen, within} from "@testing-library/react";
 import AccountPage from '../../src/pages';
 import userEvent from "@testing-library/user-event";
 import {QueryClient, QueryClientProvider} from "react-query";
@@ -12,7 +12,6 @@ it('works', async () => {
   // 14/01/2012 || -500   || 2500
   // 13/01/2012 || 2000   || 3000
   // 10/01/2012 || 1000   || 1000
-
   let queryClient = new QueryClient();
   render(<AccountPage />);
 
@@ -37,9 +36,6 @@ it('works', async () => {
   expect(within(rows[0]).getAllByRole('columnheader')[1]).toHaveTextContent("Amount")
   expect(within(rows[0]).getAllByRole('columnheader')[2]).toHaveTextContent("Balance")
 
-  await screen.findByText("-500");
-  console.log(rows);
-
   expect(within(rows[1]).getAllByRole('cell')[0]).toHaveTextContent("14/1/2012")
   expect(within(rows[1]).getAllByRole('cell')[1]).toHaveTextContent("-500")
   expect(within(rows[1]).getAllByRole('cell')[2]).toHaveTextContent("2500")
@@ -47,8 +43,4 @@ it('works', async () => {
   expect(within(rows[2]).getAllByRole('cell')[0]).toHaveTextContent("13/1/2012")
   expect(within(rows[2]).getAllByRole('cell')[1]).toHaveTextContent("2000")
   expect(within(rows[2]).getAllByRole('cell')[2]).toHaveTextContent("3000")
-
-  expect(within(rows[3]).getAllByRole('cell')[0]).toHaveTextContent("10/1/2012")
-  expect(within(rows[3]).getAllByRole('cell')[1]).toHaveTextContent("1000")
-  expect(within(rows[3]).getAllByRole('cell')[2]).toHaveTextContent("1000")
 })
